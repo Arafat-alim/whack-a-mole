@@ -48,10 +48,22 @@ plyBtn.addEventListener("click", () => {
       hole.removeChild(image);
     }, 600);
   }, 700);
-  // stop button Function
+
+  //! Hit the mole and get the point
+  window.addEventListener("click", (e) => {
+    console.log(e.target);
+    // if hit
+    if (e.target === hole) {
+      score.innerText = ++points;
+    }
+  });
+
+  //! stop button Function
   stopBtn.addEventListener("click", () => {
     clearInterval(startGame);
     plyBtn.style.display = "inline-block";
     stopBtn.style.display = "none";
+    // score will be reset
+    score.innerText = 0;
   });
 });

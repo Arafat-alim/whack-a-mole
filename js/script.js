@@ -24,7 +24,7 @@ window.addEventListener("mousemove", (e) => {
 });
 // !_____________________________
 
-// play Button Function
+//! play Button Function
 plyBtn.addEventListener("click", () => {
   //   alert("Lets Crack it");
   plyBtn.style.display = "none";
@@ -36,7 +36,17 @@ plyBtn.addEventListener("click", () => {
   const startGame = setInterval(() => {
     const arryNum = Math.floor(Math.random() * 9);
     hole = holes[arryNum];
-    console.log(hole);
+
+    // !create an image and class attribute
+    let image = document.createElement("img");
+    image.setAttribute("src", "./images/mole.png");
+    image.setAttribute("class", "mole");
+    hole.appendChild(image);
+
+    // removing repeated moles
+    setTimeout(() => {
+      hole.removeChild(image);
+    }, 600);
   }, 700);
   // stop button Function
   stopBtn.addEventListener("click", () => {

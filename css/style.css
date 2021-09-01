@@ -1,10 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+/* ! universal */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/*! body */
 body {
+  font-family: "Poppins", sans-serif;
   background-color: #6b0f1a;
   background-image: linear-gradient(315deg, #6b0f1a 0%, #b91372 74%);
   color: #fff;
@@ -12,4 +17,77 @@ body {
   align-items: center;
   display: flex;
   min-height: 100vh;
+}
+
+/* ! heading  */
+.heading {
+  font-size: 2em;
+  margin: 1em 0;
+  font-weight: 550;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ! Points Score */
+.score {
+  font-size: 1.3em;
+  text-align: center;
+  margin: 1em 0;
+}
+
+/* ! Parent */
+.holesCont {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 20px;
+}
+
+/* !Child */
+.hole {
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+/* ! img */
+.mole {
+  z-index: 1;
+  position: absolute;
+  height: 60px;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  animation: pop 0.3s linear;
+  /* pointer-events is none, now it is clickable  */
+  pointer-events: none;
+}
+/* ! image animation */
+@keyframes pop {
+  from {
+    bottom: -60%;
+  }
+  to {
+    bottom: 0;
+  }
+}
+/* ! buttons */
+.buttons {
+  text-align: center;
+}
+.buttons button {
+  font-family: inherit;
+  padding: 0.5em 2em;
+  margin: 2.5em 0;
+  font-size: 1em;
+  background-color: transparent;
+  color: #fff;
+  outline: none;
+}
+
+button.stop {
+  display: none;
 }

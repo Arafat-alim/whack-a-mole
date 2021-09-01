@@ -6,10 +6,9 @@ let plyBtn = document.querySelector(".play");
 let stopBtn = document.querySelector(".stop");
 let cursor = document.querySelector(".cursor img");
 
-// Cursor creating
+//! Cursor creating
 // pageX - position of x from the left of the window
 // pageY - position of y from the top of the window
-
 window.addEventListener("mousemove", (e) => {
   //   console.log(e.target);
   cursor.style.top = e.pageY + "px";
@@ -23,13 +22,26 @@ window.addEventListener("mousemove", (e) => {
     }, 100);
   });
 });
+// !_____________________________
 
 // play Button Function
 plyBtn.addEventListener("click", () => {
   //   alert("Lets Crack it");
-});
+  plyBtn.style.display = "none";
+  stopBtn.style.display = "inline-block";
+  //   start our game
+  let hole;
+  let points = 0;
 
-// stop button Function
-stopBtn.addEventListener("Click", () => {
-  alert("Stop the Game");
+  const startGame = setInterval(() => {
+    const arryNum = Math.floor(Math.random() * 9);
+    hole = holes[arryNum];
+    console.log(hole);
+  }, 700);
+  // stop button Function
+  stopBtn.addEventListener("click", () => {
+    clearInterval(startGame);
+    plyBtn.style.display = "inline-block";
+    stopBtn.style.display = "none";
+  });
 });

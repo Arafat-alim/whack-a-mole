@@ -17,6 +17,8 @@ body {
   align-items: center;
   display: flex;
   min-height: 100vh;
+  overflow: hidden;
+  cursor: none;
 }
 
 /* ! heading  */
@@ -86,6 +88,7 @@ body {
   background-color: transparent;
   color: #fff;
   outline: none;
+  cursor: none;
 }
 
 button.stop {
@@ -97,4 +100,16 @@ button.stop {
   position: absolute;
   height: 125px;
   z-index: 2;
+  /*! position my hammer according to the cursor  */
+  transform: translate(-10px, -40px);
+  pointer-events: none;
+}
+
+@keyframes hit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-30deg);
+  }
 }
